@@ -12,40 +12,72 @@ class ViewControllerAddCoursework: UIViewController, UIPickerViewDelegate, UIPic
 
    // @IBOutlet weak var btnAddCoursework: MyButton!
     @IBOutlet weak var btnSave: MyButton!
-    @IBOutlet weak var txtModule: UITextField!
-    @IBOutlet weak var txtCode: UITextField!
-    @IBOutlet weak var levelPickerView: UIPickerView!
+        @IBOutlet weak var btnCancel: MyButton!
     
-    @IBOutlet weak var btnCancel: MyButton!
-        var selectedLevel: String!
+    
+    @IBOutlet weak var handedDatePicker: UIDatePicker!
+    
+    
+    @IBOutlet weak var dueDatePicker: UIDatePicker!
+    
+    @IBOutlet weak var reminderDate: UIDatePicker!
+    
+    @IBOutlet weak var txtCoursework: UITextField!
 
-    var placeHolderData: String!
-    var levels = ["Level 4", "Level 5", "Level 6", "Level 7"];
+    @IBOutlet weak var weightPickerView: UIPickerView!
+
+        var selectedWeight: String!
+
+  //  var placeHolderData: String!
+    var weight = ["5%", "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%", "75%", "80%", "85%", "90%", "95%", "100%"];
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
-        self.customTextFieldStyle(txtModule, text: "Module Name")
-        self.customTextFieldStyle(txtCode, text: "Module Code")
+        self.customTextFieldStyle(txtCoursework, text: "Module Name")
         
-        self.levelPickerView.backgroundColor = UIColor.clearColor()
-        self.levelPickerView.delegate = self
-      //  self.levelPickerView.dataSource = self
+        self.weightPickerView.backgroundColor = UIColor.clearColor()
+        self.weightPickerView.delegate = self
+        self.weightPickerView.dataSource = self
+        self.weightPickerView.layer.borderWidth = 2
+        self.weightPickerView.layer.borderColor = UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00).CGColor
+        self.weightPickerView.layer.cornerRadius = 8
         
-        self.btnSave.backgroundColor = UIColor.clearColor()
-        self.btnSave.backgroundColor = UIColor.clearColor()
-        self.btnSave.setFillColor(UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00))
-        self.btnSave.setRadius(15,setTopRight: 15,setBottomLeft: 15,setBottomRight: 15)
         
-     //   self.btnAddCoursework.backgroundColor = UIColor.clearColor()
-      // self.btnAddCoursework.setFillColor(UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00))
-      //  self.btnAddCoursework.setRadius(15,setTopRight: 15,setBottomLeft: 15,setBottomRight: 15)
         
-        selectedLevel = "Level 4"
+        
+        datePickerStyle(handedDatePicker)
+        datePickerStyle(dueDatePicker)
+        datePickerStyle(reminderDate)
+        
+       
+        buttonStyle(btnSave)
+        buttonStyle(btnCancel)
+        
+
+
+        
+        selectedWeight = "50%"
 
     }
+    
+    func datePickerStyle(datePicker: UIDatePicker){
+        datePicker.layer.borderWidth = 2
+       datePicker.layer.cornerRadius = 8
+        datePicker.sizeToFit()
+        datePicker.layer.borderColor = UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00).CGColor
+        
+        datePicker.setValue(UIColor.whiteColor(), forKey: "textColor")
+    }
  
+    func buttonStyle(button: MyButton) {
+        button.backgroundColor = UIColor.clearColor()
+        button.backgroundColor = UIColor.clearColor()
+        button.setFillColor(UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00))
+        button.setRadius(15,setTopRight: 15,setBottomLeft: 15,setBottomRight: 15)
+    }
  
  
     func customTextFieldStyle(textField: UITextField, text: String) {
@@ -55,10 +87,6 @@ class ViewControllerAddCoursework: UIViewController, UIPickerViewDelegate, UIPic
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 2
         textField.layer.borderColor = UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00).CGColor
-        
-        levelPickerView.layer.borderWidth = 2
-        levelPickerView.layer.borderColor = UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00).CGColor
-        levelPickerView.layer.cornerRadius = 8
     }
 
  
@@ -67,23 +95,35 @@ class ViewControllerAddCoursework: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return levels.count
+        
+
+             return weight.count
+
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var attributedString: NSAttributedString!
         
+
+            
+            attributedString = NSAttributedString(string: weight[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+            
+            return attributedString
+            
         
-        attributedString = NSAttributedString(string: levels[row], attributes: [NSForegroundColorAttributeName : UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00)])
+
         
-        return attributedString
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        print(levels[row])
+
+           
+            print(weight[row])
+            
+            selectedWeight = weight[row]
+            
         
-        selectedLevel = levels[row]
         
     }
 

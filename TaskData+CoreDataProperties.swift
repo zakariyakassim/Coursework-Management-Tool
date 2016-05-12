@@ -1,5 +1,5 @@
 //
-//  ModuleData+CoreDataProperties.swift
+//  TaskData+CoreDataProperties.swift
 //  Coursework Management Tool
 //
 //  Created by Zakariya Kassim on 09/05/2016.
@@ -12,13 +12,12 @@
 import Foundation
 import CoreData
 
-extension ModuleData {
+extension TaskData {
 
-    @NSManaged var code: String?
-    @NSManaged var level: String?
-    @NSManaged var name: String?
-    @NSManaged var credits: String?
-    @NSManaged var tutor: String?
-    @NSManaged var moduleToCoursework: NSSet?
+    @NSManaged var notes: String?
+    @NSManaged var reminder: NSDate?
+    @NSManaged var taskName: String?
+    @NSManaged var completeAmount: NSNumber?
+    @NSManaged var taskToCoursework: CourseworkData?
 
 }

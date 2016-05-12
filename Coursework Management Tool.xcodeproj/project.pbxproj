@@ -17,7 +17,12 @@
 		529632061C9F4FCB0059415B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529632041C9F4FCB0059415B /* LaunchScreen.storyboard */; };
 		529632111C9F4FCB0059415B /* Coursework_Management_ToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529632101C9F4FCB0059415B /* Coursework_Management_ToolTests.swift */; };
 		5296321C1C9F4FCB0059415B /* Coursework_Management_ToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296321B1C9F4FCB0059415B /* Coursework_Management_ToolUITests.swift */; };
-		E5331D661CE0C02E00E892A0 /* ViewControllerAddCoursework.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D651CE0C02E00E892A0 /* ViewControllerAddCoursework.swift */; };
+		E5331D661CE0C02E00E892A0 /* ViewControllerAddModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D651CE0C02E00E892A0 /* ViewControllerAddModule.swift */; };
+		E5331D6B1CE1013100E892A0 /* TaskData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D671CE1013000E892A0 /* TaskData+CoreDataProperties.swift */; };
+		E5331D6C1CE1013100E892A0 /* TaskData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D681CE1013100E892A0 /* TaskData.swift */; };
+		E5331D6D1CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D691CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift */; };
+		E5331D6E1CE1013100E892A0 /* CourseworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D6A1CE1013100E892A0 /* CourseworkData.swift */; };
+		E5331D701CE1038000E892A0 /* ViewControllerAddCoursework.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D6F1CE1038000E892A0 /* ViewControllerAddCoursework.swift */; };
 		E55E11FD1CDA76F500046C76 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55E11FC1CDA76F500046C76 /* MyButton.swift */; };
 		E55E11FF1CDAC61700046C76 /* calculatorlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E55E11FE1CDAC61700046C76 /* calculatorlogo.png */; };
 		E55E12011CDADEB600046C76 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55E12001CDADEB600046C76 /* MyTextField.swift */; };
@@ -61,7 +66,12 @@
 		529632171C9F4FCB0059415B /* Coursework Management ToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coursework Management ToolUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5296321B1C9F4FCB0059415B /* Coursework_Management_ToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coursework_Management_ToolUITests.swift; sourceTree = "<group>"; };
 		5296321D1C9F4FCB0059415B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5331D651CE0C02E00E892A0 /* ViewControllerAddCoursework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAddCoursework.swift; sourceTree = "<group>"; };
+		E5331D651CE0C02E00E892A0 /* ViewControllerAddModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAddModule.swift; sourceTree = "<group>"; };
+		E5331D671CE1013000E892A0 /* TaskData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TaskData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E5331D681CE1013100E892A0 /* TaskData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskData.swift; sourceTree = "<group>"; };
+		E5331D691CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CourseworkData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E5331D6A1CE1013100E892A0 /* CourseworkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseworkData.swift; sourceTree = "<group>"; };
+		E5331D6F1CE1038000E892A0 /* ViewControllerAddCoursework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAddCoursework.swift; sourceTree = "<group>"; };
 		E55E11FC1CDA76F500046C76 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		E55E11FE1CDAC61700046C76 /* calculatorlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculatorlogo.png; sourceTree = "<group>"; };
 		E55E12001CDADEB600046C76 /* MyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
@@ -99,6 +109,10 @@
 		529631ED1C9F4FCA0059415B = {
 			isa = PBXGroup;
 			children = (
+				E5331D671CE1013000E892A0 /* TaskData+CoreDataProperties.swift */,
+				E5331D681CE1013100E892A0 /* TaskData.swift */,
+				E5331D691CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift */,
+				E5331D6A1CE1013100E892A0 /* CourseworkData.swift */,
 				E57932DA1CDB8D1800429C10 /* ModuleData+CoreDataProperties.swift */,
 				E57932DB1CDB8D1800429C10 /* ModuleData.swift */,
 				529631F81C9F4FCB0059415B /* Coursework Management Tool */,
@@ -133,7 +147,8 @@
 				E55E11FE1CDAC61700046C76 /* calculatorlogo.png */,
 				5270F1991C9F64A2003A8E7D /* Module.swift */,
 				529079411CB691A900CA9ECA /* ViewControllerMainMenu.swift */,
-				E5331D651CE0C02E00E892A0 /* ViewControllerAddCoursework.swift */,
+				E5331D651CE0C02E00E892A0 /* ViewControllerAddModule.swift */,
+				E5331D6F1CE1038000E892A0 /* ViewControllerAddCoursework.swift */,
 				E55E12001CDADEB600046C76 /* MyTextField.swift */,
 				E57932CD1CDB806000429C10 /* MyCoreData.xcdatamodeld */,
 			);
@@ -293,16 +308,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5331D6B1CE1013100E892A0 /* TaskData+CoreDataProperties.swift in Sources */,
+				E5331D701CE1038000E892A0 /* ViewControllerAddCoursework.swift in Sources */,
 				5270F19A1C9F64A2003A8E7D /* Module.swift in Sources */,
 				E57932DD1CDB8D1800429C10 /* ModuleData.swift in Sources */,
 				E55E12011CDADEB600046C76 /* MyTextField.swift in Sources */,
+				E5331D6C1CE1013100E892A0 /* TaskData.swift in Sources */,
 				529631FE1C9F4FCB0059415B /* DetailViewController.swift in Sources */,
-				E5331D661CE0C02E00E892A0 /* ViewControllerAddCoursework.swift in Sources */,
+				E5331D661CE0C02E00E892A0 /* ViewControllerAddModule.swift in Sources */,
 				529631FC1C9F4FCB0059415B /* MasterViewController.swift in Sources */,
 				E57932DF1CDB8D6400429C10 /* DataController.swift in Sources */,
 				529079421CB691A900CA9ECA /* ViewControllerMainMenu.swift in Sources */,
 				E57932CF1CDB806000429C10 /* MyCoreData.xcdatamodeld in Sources */,
+				E5331D6D1CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift in Sources */,
 				529631FA1C9F4FCB0059415B /* AppDelegate.swift in Sources */,
+				E5331D6E1CE1013100E892A0 /* CourseworkData.swift in Sources */,
 				E57932DC1CDB8D1800429C10 /* ModuleData+CoreDataProperties.swift in Sources */,
 				E55E11FD1CDA76F500046C76 /* MyButton.swift in Sources */,
 			);
