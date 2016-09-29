@@ -39,20 +39,60 @@ class DataController: NSObject {
         
     }
     
+
+
     
-    
-    func addModule(name: String, code: String, level: String) {
+    func addTask(taskID: String, title: String, notes: String, completeAmount: String, reminder: NSDate, courseworkID: String) {
         
         // create an instance of our managedObjectContext
         // let moc = DataController().managedObjectContext
         
         // we set up our entity by selecting the entity and context that we're targeting
-        let entity = NSEntityDescription.insertNewObjectForEntityForName("ModuleData", inManagedObjectContext: managedObjectContext) as! ModuleData
+        let entity = NSEntityDescription.insertNewObjectForEntityForName("TaskData", inManagedObjectContext: managedObjectContext) as! TaskData
         
         // add our data
+        entity.setValue(taskID, forKey: "taskID")
+        entity.setValue(title, forKey: "title")
+        entity.setValue(notes, forKey: "notes")
+        entity.setValue(completeAmount, forKey: "completeAmount")
+        entity.setValue(reminder, forKey: "reminder")
+        entity.setValue(courseworkID, forKey: "courseworkID")
+
+        
+        print("Addeeeeeeeeed")
+        
+        // we save our entity
+        do {
+            try managedObjectContext.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    }
+
+    
+    
+    func addCoursework(courseworkID: String, name: String, weight: String, startDate: NSDate, endDate: NSDate, markAwarded: String, reminder: NSDate, notes: String, module: String, level: String,  moduleID: String) {
+        
+        // create an instance of our managedObjectContext
+        // let moc = DataController().managedObjectContext
+        
+        // we set up our entity by selecting the entity and context that we're targeting
+        let entity = NSEntityDescription.insertNewObjectForEntityForName("CourseworkData", inManagedObjectContext: managedObjectContext) as! CourseworkData
+        
+        // add our data
+        entity.setValue(courseworkID, forKey: "courseworkID")
         entity.setValue(name, forKey: "name")
-        entity.setValue(code, forKey: "code")
+        entity.setValue(weight, forKey: "weight")
+        entity.setValue(startDate, forKey: "startDate")
+        entity.setValue(endDate, forKey: "endDate")
+        entity.setValue(markAwarded, forKey: "markAwarded")
+        entity.setValue(reminder, forKey: "reminder")
+        entity.setValue(notes, forKey: "notes")
+        entity.setValue(moduleID, forKey: "moduleID")
         entity.setValue(level, forKey: "level")
+
+        
+        print("Addeeeeeeeeed")
         
         // we save our entity
         do {
@@ -62,11 +102,307 @@ class DataController: NSObject {
         }
     }
     
+
+    
+    func addModule(moduleID: String, name: String, code: String, level: String, tutor: String, credits: String) {
+        
+        // create an instance of our managedObjectContext
+        // let moc = DataController().managedObjectContext
+        
+        // we set up our entity by selecting the entity and context that we're targeting
+        let entity = NSEntityDescription.insertNewObjectForEntityForName("ModuleData", inManagedObjectContext: managedObjectContext) as! ModuleData
+        
+        // add our data
+        entity.setValue(moduleID, forKey: "moduleID")
+        entity.setValue(name, forKey: "name")
+        entity.setValue(code, forKey: "code")
+        entity.setValue(level, forKey: "level")
+        entity.setValue(tutor, forKey: "tutor")
+        entity.setValue(credits, forKey: "credits")
+
+        
+        // we save our entity
+        do {
+            try managedObjectContext.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+        
+        print("Added")
+    }
+    
+    func idToTask(id: String) -> String{
+        let fetch = NSFetchRequest(entityName: "TaskData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [TaskData]
+            
+            for x in fetched {
+                print(x.taskID!)
+                if x.taskID!.containsString(id) {
+                    print("found")
+                    return x.title!
+                }
+            }
+            
+            
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return "Invalid id " + id
+    }
+    
+    
+    func idToModule(id: String) -> String{
+        let fetch = NSFetchRequest(entityName: "ModuleData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [ModuleData]
+            
+            for x in fetched {
+                print(x.moduleID!)
+                if x.moduleID!.containsString(id) {
+                    print("found")
+                    return x.name!
+                }
+            }
+            
+            
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return "Invalid id " + id
+    }
     
     
     
+    func idToCoursework(id: String) -> String{
+        let fetch = NSFetchRequest(entityName: "CourseworkData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [CourseworkData]
+            
+            for x in fetched {
+               // print(x.courseworkID!)
+                if x.courseworkID!.containsString(id) {
+                   // print("found")
+                    return x.name!
+                }
+            }
+            
+            
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return "Invalid id " + id
+    }
+    
+ 
+
+    func getCourseworkByModule(moduleID: String) -> Array<String>{
+        var list = [String]()
+        let fetch = NSFetchRequest(entityName: "CourseworkData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [CourseworkData]
+            
+            for x in fetched {
+                //print(x.courseworkID)
+                if x.moduleID!.containsString(moduleID) {
+                  //  print("found")
+                    
+                    list.insert(x.courseworkID!, atIndex: 0)
+                    
+                }
+            }
+            
+            saveContext()
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return list
+    } 
+
+    
+    func getTaskByCoursework(courseworkID: String) -> Array<String>{
+        var list = [String]()
+        let fetch = NSFetchRequest(entityName: "TaskData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [TaskData]
+            
+            for x in fetched {
+                print("zaaaaaa "+x.courseworkID!)
+                if x.courseworkID!.containsString(courseworkID) {
+                    //  print("found")
+                    
+                    list.insert(x.taskID!, atIndex: 0)
+                    
+                }
+            }
+            
+           // saveContext()
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return list
+    }
+    
+    
+    
+    
+    func getPercentageByTask(id: String) -> String{
+        let fetch = NSFetchRequest(entityName: "TaskData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [TaskData]
+            
+            for x in fetched {
+                // print(x.courseworkID!)
+                if x.courseworkID!.containsString(id) {
+                    // print("found")
+                    return x.completeAmount!
+                }
+            }
+            
+            
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return "Invalid id " + id
+    }
+    
+    func allTaskData(taskID: String) -> Task{
+        var task: Task!
+        let fetch = NSFetchRequest(entityName: "TaskData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [TaskData]
+            
+            for x in fetched {
+                print("zaaaaaa "+x.taskID!)
+                if x.taskID!.containsString(taskID) {
+                    //  print("found")
+                    
+                    //  list.insert(x.taskID!, atIndex: 0)
+                    
+                    task = Task(taskID: x.taskID!, title: x.title!, notes: x.notes!, completeAmount: x.completeAmount!, reminder: String(x.reminder))
+                    
+                }
+            }
+            
+            saveContext()
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return task
+    }
+    
+
+    func getTaskByCourseworkk(courseworkID: String, endDate: String) -> Array<Task>{
+        var list = [Task]()
+        let fetch = NSFetchRequest(entityName: "TaskData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [TaskData]
+            
+            for x in fetched {
+                print("zaaaaaa "+x.courseworkID!)
+                if x.courseworkID!.containsString(courseworkID) {
+                    //  print("found")
+                    
+                  //  list.insert(x.taskID!, atIndex: 0)
+                    
+                    let task = Task(taskID: x.taskID!, title: x.title!, notes: x.notes!, completeAmount: x.completeAmount!, reminder: String(x.reminder))
+
+                    
+                    
+                    list.insert(task, atIndex: 0)
+                    
+                }
+            }
+            
+            saveContext()
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        
+        return list
+    }
+    
+    func fetchCoursework() -> Array<String> {
+        
+        var list = [String]()
+        let fetch = NSFetchRequest(entityName: "CourseworkData")
+        
+        do {
+            let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [CourseworkData]
+            
+            if fetched.count > 0 {
+                //  print(fetched.first!.name!)
+                
+                
+                for m in fetched {
+                    if let id = m.courseworkID {
+                        list.insert(id, atIndex: 0)
+                    }            }
+                
+            }
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+        return list
+        
+    }
     
     func fetchModules() -> Array<String> {
+        
+var list = [String]()
+        
+        let fetch = NSFetchRequest(entityName: "ModuleData")
+        
+        
+        
+        do {
+           let fetched = try self.managedObjectContext.executeFetchRequest(fetch) as! [ModuleData]
+            
+
+            
+            if fetched.count > 0 {
+   
+                
+                
+                for m in fetched {
+                    if let id = m.moduleID {
+                        list.insert(id, atIndex: 0)
+                    }            }
+                
+            }
+            
+        } catch {
+            fatalError("Failed to fetch: \(error)")
+        }
+       return list
+        
+    }
+    
+   /* func fetchModules() -> Array<String> {
         
         var list = [String]()
         let fetch = NSFetchRequest(entityName: "ModuleData")
@@ -91,7 +427,7 @@ class DataController: NSObject {
         }
         return list
         
-    }
+    } */
     
     
     
@@ -134,7 +470,7 @@ class DataController: NSObject {
     } */
     
     
-    
+  /*
     func deleteEach(ref: String){
          let fetch = NSFetchRequest(entityName: "ModuleData")
         
@@ -155,9 +491,8 @@ class DataController: NSObject {
             fatalError("Failed to fetch: \(error)")
         }
 
-        
-
-    }
+    } 
+ */
     
     
     func saveContext () {
@@ -176,7 +511,7 @@ class DataController: NSObject {
     
     
     
-    func fetchAll() -> Array<Module> {
+   /* func fetchAll() -> Array<Module> {
         
         var modules = [Module]()
         
@@ -203,7 +538,7 @@ class DataController: NSObject {
         
         return modules
         
-    }
+    } */
     
     
 }

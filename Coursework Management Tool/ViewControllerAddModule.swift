@@ -8,18 +8,26 @@
 
 import UIKit
 
+
 class ViewControllerAddModule: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+        var style = Style()
+
+    
+    var dataController = DataController()
+    
    // @IBOutlet weak var btnAddCoursework: MyButton!
-    @IBOutlet weak var btnSave: MyButton!
+    @IBOutlet weak var btnSave: UIBarButtonItem!
+
     @IBOutlet weak var txtModule: UITextField!
     @IBOutlet weak var txtCode: UITextField!
     @IBOutlet weak var levelPickerView: UIPickerView!
     
     @IBOutlet weak var txtTutor: UITextField!
     @IBOutlet weak var creditsPickerView: UIPickerView!
-    @IBOutlet weak var btnCancel: MyButton!
+    @IBOutlet weak var btnAddCoursework: MyButton!
         var selectedLevel: String!
+    var selectedCredits: String!
 
     var placeHolderData: String!
     var levels = ["Level 4", "Level 5", "Level 6", "Level 7"];
@@ -29,60 +37,22 @@ class ViewControllerAddModule: UIViewController, UIPickerViewDelegate, UIPickerV
         super.viewDidLoad()
         
 
-        self.customTextFieldStyle(txtModule, text: "Module Name")
-        self.customTextFieldStyle(txtCode, text: "Module Code")
-        self.customTextFieldStyle(txtTutor, text: "Tutor Name")
+        self.style.customTextFieldStyle(txtModule, text: "Module Name")
+        self.style.customTextFieldStyle(txtCode, text: "Module Code")
+        self.style.customTextFieldStyle(txtTutor, text: "Tutor Name")
         
-        self.levelPickerView.backgroundColor = UIColor.clearColor()
-        self.levelPickerView.delegate = self
-       self.levelPickerView.dataSource = self
-        self.levelPickerView.layer.borderWidth = 2
-        self.levelPickerView.layer.borderColor = UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00).CGColor
-        self.levelPickerView.layer.cornerRadius = 8
+        self.style.pickeviewStyle(levelPickerView, delegate: self, dataSource: self)
+        self.style.pickeviewStyle(creditsPickerView, delegate: self, dataSource: self)
         
-        self.creditsPickerView.backgroundColor = UIColor.clearColor()
-        self.creditsPickerView.delegate = self
-        self.creditsPickerView.dataSource = self
-        self.creditsPickerView.layer.borderWidth = 2
-        self.creditsPickerView.layer.borderColor = UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00).CGColor
-        self.creditsPickerView.layer.cornerRadius = 8
-        
-        buttonStyle(btnSave)
-        buttonStyle(btnCancel)
-        
-        
-        
-      //  self.btnSave.backgroundColor = UIColor.clearColor()
-      //  self.btnSave.backgroundColor = UIColor.clearColor()
-      //  self.btnSave.setFillColor(UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00))
-      //  self.btnSave.setRadius(15,setTopRight: 15,setBottomLeft: 15,setBottomRight: 15)
-        
-     //   self.btnAddCoursework.backgroundColor = UIColor.clearColor()
-      // self.btnAddCoursework.setFillColor(UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00))
-      //  self.btnAddCoursework.setRadius(15,setTopRight: 15,setBottomLeft: 15,setBottomRight: 15)
-        
+       // self.style.buttonStyle(btnSave)
+      //  self.style.buttonStyle(btnAddCoursework)
+
         selectedLevel = "Level 4"
+        selectedCredits = "15 Credits"
 
     }
  
-    func buttonStyle(button: MyButton) {
-        button.backgroundColor = UIColor.clearColor()
-        button.backgroundColor = UIColor.clearColor()
-        button.setFillColor(UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00))
-        button.setRadius(15,setTopRight: 15,setBottomLeft: 15,setBottomRight: 15)
-    }
- 
- 
-    func customTextFieldStyle(textField: UITextField, text: String) {
-        
-        textField.backgroundColor = UIColor.clearColor()
-        textField.attributedPlaceholder = NSAttributedString(string: text, attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
-        textField.layer.cornerRadius = 8
-        textField.layer.borderWidth = 2
-        textField.layer.borderColor = UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00).CGColor
-    }
-
- 
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -103,13 +73,13 @@ class ViewControllerAddModule: UIViewController, UIPickerViewDelegate, UIPickerV
         
         if pickerView == levelPickerView {
             
-            attributedString = NSAttributedString(string: levels[row], attributes: [NSForegroundColorAttributeName : UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00)])
+            attributedString = NSAttributedString(string: levels[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
             
             return attributedString
             
         } else if pickerView == creditsPickerView{
            
-            attributedString = NSAttributedString(string: credits[row], attributes: [NSForegroundColorAttributeName : UIColor(red: 0.165, green:0.427, blue:0.620, alpha:1.00)])
+            attributedString = NSAttributedString(string: credits[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
             
            
             return attributedString
@@ -132,13 +102,32 @@ class ViewControllerAddModule: UIViewController, UIPickerViewDelegate, UIPickerV
             
             print(credits[row])
             
-           // selectedLevel = credits[row]
+            selectedCredits = credits[row]
             
         }
         
         
     }
 
+    
+    /*@IBAction func btnSave(sender: UIBarButtonItem) {
+        
+        dataController.addModule(NSUUID().UUIDString, name: txtModule.text!, code: txtCode.text!, level: selectedLevel, tutor: txtTutor.text!, credits: selectedCredits)
+
+        
+    } */
+    
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        dataController.addModule(NSUUID().UUIDString, name: txtModule.text!, code: txtCode.text!, level: selectedLevel, tutor: txtTutor.text!, credits: selectedCredits)
+        
+    }
+    
+    
+    
     
 
     override func didReceiveMemoryWarning() {

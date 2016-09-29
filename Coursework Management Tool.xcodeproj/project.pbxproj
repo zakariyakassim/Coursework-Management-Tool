@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5270F19A1C9F64A2003A8E7D /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270F1991C9F64A2003A8E7D /* Module.swift */; };
+		5270F19A1C9F64A2003A8E7D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270F1991C9F64A2003A8E7D /* Task.swift */; };
 		529079421CB691A900CA9ECA /* ViewControllerMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529079411CB691A900CA9ECA /* ViewControllerMainMenu.swift */; };
 		529631FA1C9F4FCB0059415B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529631F91C9F4FCB0059415B /* AppDelegate.swift */; };
-		529631FC1C9F4FCB0059415B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529631FB1C9F4FCB0059415B /* MasterViewController.swift */; };
-		529631FE1C9F4FCB0059415B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529631FD1C9F4FCB0059415B /* DetailViewController.swift */; };
 		529632011C9F4FCB0059415B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529631FF1C9F4FCB0059415B /* Main.storyboard */; };
 		529632031C9F4FCB0059415B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 529632021C9F4FCB0059415B /* Assets.xcassets */; };
 		529632061C9F4FCB0059415B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529632041C9F4FCB0059415B /* LaunchScreen.storyboard */; };
@@ -23,6 +21,12 @@
 		E5331D6D1CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D691CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift */; };
 		E5331D6E1CE1013100E892A0 /* CourseworkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D6A1CE1013100E892A0 /* CourseworkData.swift */; };
 		E5331D701CE1038000E892A0 /* ViewControllerAddCoursework.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D6F1CE1038000E892A0 /* ViewControllerAddCoursework.swift */; };
+		E5331D721CE88EF500E892A0 /* ViewControllerAddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D711CE88EF500E892A0 /* ViewControllerAddTask.swift */; };
+		E5331D741CE8AA6200E892A0 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D731CE8AA6200E892A0 /* Style.swift */; };
+		E5331D761CE9162000E892A0 /* ViewControllerSelectModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D751CE9162000E892A0 /* ViewControllerSelectModule.swift */; };
+		E5331D781CE9DADE00E892A0 /* ViewControllerSelectCoursework.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D771CE9DADE00E892A0 /* ViewControllerSelectCoursework.swift */; };
+		E5331D7A1CEA96F500E892A0 /* ViewControllerSelectTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D791CEA96F500E892A0 /* ViewControllerSelectTask.swift */; };
+		E5331D7C1CEAA64400E892A0 /* ViewControllerViewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5331D7B1CEAA64400E892A0 /* ViewControllerViewTask.swift */; };
 		E55E11FD1CDA76F500046C76 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55E11FC1CDA76F500046C76 /* MyButton.swift */; };
 		E55E11FF1CDAC61700046C76 /* calculatorlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E55E11FE1CDAC61700046C76 /* calculatorlogo.png */; };
 		E55E12011CDADEB600046C76 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55E12001CDADEB600046C76 /* MyTextField.swift */; };
@@ -30,6 +34,9 @@
 		E57932DC1CDB8D1800429C10 /* ModuleData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57932DA1CDB8D1800429C10 /* ModuleData+CoreDataProperties.swift */; };
 		E57932DD1CDB8D1800429C10 /* ModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57932DB1CDB8D1800429C10 /* ModuleData.swift */; };
 		E57932DF1CDB8D6400429C10 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57932DE1CDB8D6400429C10 /* DataController.swift */; };
+		E5C038741CEDE9CB002F8A72 /* ViewControllerGraphicalPercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C038731CEDE9CB002F8A72 /* ViewControllerGraphicalPercentage.swift */; };
+		E5C038771CEDEA51002F8A72 /* TeethLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C038751CEDEA51002F8A72 /* TeethLoader.swift */; };
+		E5C038781CEDEA51002F8A72 /* TeethLoaderCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C038761CEDEA51002F8A72 /* TeethLoaderCA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5270F1991C9F64A2003A8E7D /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		5270F1991C9F64A2003A8E7D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		529079411CB691A900CA9ECA /* ViewControllerMainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerMainMenu.swift; sourceTree = "<group>"; };
 		529631F61C9F4FCB0059415B /* Coursework Management Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coursework Management Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		529631F91C9F4FCB0059415B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		529631FB1C9F4FCB0059415B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		529631FD1C9F4FCB0059415B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		529632001C9F4FCB0059415B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		529632021C9F4FCB0059415B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		529632051C9F4FCB0059415B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +77,12 @@
 		E5331D691CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CourseworkData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E5331D6A1CE1013100E892A0 /* CourseworkData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseworkData.swift; sourceTree = "<group>"; };
 		E5331D6F1CE1038000E892A0 /* ViewControllerAddCoursework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAddCoursework.swift; sourceTree = "<group>"; };
+		E5331D711CE88EF500E892A0 /* ViewControllerAddTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAddTask.swift; sourceTree = "<group>"; };
+		E5331D731CE8AA6200E892A0 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		E5331D751CE9162000E892A0 /* ViewControllerSelectModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSelectModule.swift; sourceTree = "<group>"; };
+		E5331D771CE9DADE00E892A0 /* ViewControllerSelectCoursework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSelectCoursework.swift; sourceTree = "<group>"; };
+		E5331D791CEA96F500E892A0 /* ViewControllerSelectTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSelectTask.swift; sourceTree = "<group>"; };
+		E5331D7B1CEAA64400E892A0 /* ViewControllerViewTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerViewTask.swift; sourceTree = "<group>"; };
 		E55E11FC1CDA76F500046C76 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		E55E11FE1CDAC61700046C76 /* calculatorlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculatorlogo.png; sourceTree = "<group>"; };
 		E55E12001CDADEB600046C76 /* MyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
@@ -79,6 +90,9 @@
 		E57932DA1CDB8D1800429C10 /* ModuleData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ModuleData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E57932DB1CDB8D1800429C10 /* ModuleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleData.swift; sourceTree = "<group>"; };
 		E57932DE1CDB8D6400429C10 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		E5C038731CEDE9CB002F8A72 /* ViewControllerGraphicalPercentage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGraphicalPercentage.swift; sourceTree = "<group>"; };
+		E5C038751CEDEA51002F8A72 /* TeethLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeethLoader.swift; sourceTree = "<group>"; };
+		E5C038761CEDEA51002F8A72 /* TeethLoaderCA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeethLoaderCA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,19 +152,26 @@
 				E57932DE1CDB8D6400429C10 /* DataController.swift */,
 				E55E11FC1CDA76F500046C76 /* MyButton.swift */,
 				529631F91C9F4FCB0059415B /* AppDelegate.swift */,
-				529631FB1C9F4FCB0059415B /* MasterViewController.swift */,
-				529631FD1C9F4FCB0059415B /* DetailViewController.swift */,
 				529631FF1C9F4FCB0059415B /* Main.storyboard */,
+				E5C038751CEDEA51002F8A72 /* TeethLoader.swift */,
+				E5C038761CEDEA51002F8A72 /* TeethLoaderCA.swift */,
 				529632021C9F4FCB0059415B /* Assets.xcassets */,
 				529632041C9F4FCB0059415B /* LaunchScreen.storyboard */,
 				529632071C9F4FCB0059415B /* Info.plist */,
 				E55E11FE1CDAC61700046C76 /* calculatorlogo.png */,
-				5270F1991C9F64A2003A8E7D /* Module.swift */,
+				5270F1991C9F64A2003A8E7D /* Task.swift */,
+				E5C038731CEDE9CB002F8A72 /* ViewControllerGraphicalPercentage.swift */,
+				E5331D751CE9162000E892A0 /* ViewControllerSelectModule.swift */,
+				E5331D791CEA96F500E892A0 /* ViewControllerSelectTask.swift */,
+				E5331D7B1CEAA64400E892A0 /* ViewControllerViewTask.swift */,
+				E5331D771CE9DADE00E892A0 /* ViewControllerSelectCoursework.swift */,
 				529079411CB691A900CA9ECA /* ViewControllerMainMenu.swift */,
 				E5331D651CE0C02E00E892A0 /* ViewControllerAddModule.swift */,
+				E5331D711CE88EF500E892A0 /* ViewControllerAddTask.swift */,
 				E5331D6F1CE1038000E892A0 /* ViewControllerAddCoursework.swift */,
 				E55E12001CDADEB600046C76 /* MyTextField.swift */,
 				E57932CD1CDB806000429C10 /* MyCoreData.xcdatamodeld */,
+				E5331D731CE8AA6200E892A0 /* Style.swift */,
 			);
 			path = "Coursework Management Tool";
 			sourceTree = "<group>";
@@ -309,22 +330,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5331D6B1CE1013100E892A0 /* TaskData+CoreDataProperties.swift in Sources */,
+				E5331D781CE9DADE00E892A0 /* ViewControllerSelectCoursework.swift in Sources */,
+				E5331D741CE8AA6200E892A0 /* Style.swift in Sources */,
+				E5C038781CEDEA51002F8A72 /* TeethLoaderCA.swift in Sources */,
 				E5331D701CE1038000E892A0 /* ViewControllerAddCoursework.swift in Sources */,
-				5270F19A1C9F64A2003A8E7D /* Module.swift in Sources */,
+				5270F19A1C9F64A2003A8E7D /* Task.swift in Sources */,
 				E57932DD1CDB8D1800429C10 /* ModuleData.swift in Sources */,
 				E55E12011CDADEB600046C76 /* MyTextField.swift in Sources */,
 				E5331D6C1CE1013100E892A0 /* TaskData.swift in Sources */,
-				529631FE1C9F4FCB0059415B /* DetailViewController.swift in Sources */,
+				E5331D7C1CEAA64400E892A0 /* ViewControllerViewTask.swift in Sources */,
 				E5331D661CE0C02E00E892A0 /* ViewControllerAddModule.swift in Sources */,
-				529631FC1C9F4FCB0059415B /* MasterViewController.swift in Sources */,
 				E57932DF1CDB8D6400429C10 /* DataController.swift in Sources */,
 				529079421CB691A900CA9ECA /* ViewControllerMainMenu.swift in Sources */,
+				E5C038771CEDEA51002F8A72 /* TeethLoader.swift in Sources */,
 				E57932CF1CDB806000429C10 /* MyCoreData.xcdatamodeld in Sources */,
 				E5331D6D1CE1013100E892A0 /* CourseworkData+CoreDataProperties.swift in Sources */,
 				529631FA1C9F4FCB0059415B /* AppDelegate.swift in Sources */,
 				E5331D6E1CE1013100E892A0 /* CourseworkData.swift in Sources */,
 				E57932DC1CDB8D1800429C10 /* ModuleData+CoreDataProperties.swift in Sources */,
+				E5331D761CE9162000E892A0 /* ViewControllerSelectModule.swift in Sources */,
 				E55E11FD1CDA76F500046C76 /* MyButton.swift in Sources */,
+				E5331D721CE88EF500E892A0 /* ViewControllerAddTask.swift in Sources */,
+				E5C038741CEDE9CB002F8A72 /* ViewControllerGraphicalPercentage.swift in Sources */,
+				E5331D7A1CEA96F500E892A0 /* ViewControllerSelectTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

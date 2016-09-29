@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
     <entity name="CourseworkData" representedClassName=".CourseworkData" syncable="YES">
+        <attribute name="courseworkID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="markAwarded" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="markAwarded" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="moduleID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reminder" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="courseworkToModule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ModuleData" inverseName="moduleToCoursework" inverseEntity="ModuleData" syncable="YES"/>
-        <relationship name="courseworkToTask" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TaskData" inverseName="taskToCoursework" inverseEntity="TaskData" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ModuleData" representedClassName=".ModuleData" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="credits" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="moduleID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tutor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="moduleToCoursework" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CourseworkData" inverseName="courseworkToModule" inverseEntity="CourseworkData" syncable="YES"/>
     </entity>
     <entity name="TaskData" representedClassName=".TaskData" syncable="YES">
-        <attribute name="completeAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="completeAmount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseworkID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reminder" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="taskID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="taskName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="taskToCoursework" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CourseworkData" inverseName="courseworkToTask" inverseEntity="CourseworkData" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="ModuleData" positionX="-54" positionY="18" width="128" height="133"/>
-        <element name="CourseworkData" positionX="-171" positionY="309" width="128" height="178"/>
-        <element name="TaskData" positionX="286" positionY="174" width="128" height="118"/>
+        <element name="CourseworkData" positionX="-171" positionY="309" width="128" height="193"/>
+        <element name="TaskData" positionX="286" positionY="174" width="128" height="148"/>
     </elements>
 </model>

@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct Module {
-    var name : String
-    var code : String
+struct Task {
+    var taskID : String
+    var title : String
+    var notes : String
+    var completeAmount : String
+    var reminder : String
+    
     
 }
